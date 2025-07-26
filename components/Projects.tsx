@@ -5,17 +5,18 @@ import { FaGithub, FaExternalLinkAlt, FaRobot, FaUsers, FaShieldAlt, FaBuilding 
 export default function Projects() {
   const projects = [
     {
-      title: "Route Your Travel",
-      description: "An AI-Powered Travel Platform with static marketing site in production. Features AI travel assistant that converts user photos and notes into carousel-style blogs via Gemini Vision API, with image upload, chat UI, and shareable blog card publishing.",
-      tech: ["Next.js", "FastAPI", "Gemini API", "Postgres", "Tailwind CSS", "AI/ML"],
-      github: "https://github.com/company/route-your-travel", // Company repo
-      live: "https://routeyourtravel.com",
-      category: "AI Platform",
-      gradient: "from-indigo-500 to-purple-500",
-      icon: FaRobot,
-      features: ["AI Vision Processing", "Blog Generation", "Image Upload"],
-      isCompanyProject: true
-    },
+       title: "Route Your Travel",
+       description: "AI-Powered Travel Platform with a production-ready marketing site. Designed and deployed a responsive static frontend using Next.js and Tailwind CSS. Currently developing AI features including blog generation from user content via Gemini Vision.",
+       tech: ["Next.js", "FastAPI", "Postgres", "Tailwind CSS" ,"GenAi"],
+       github: "https://github.com/company/route-your-travel",
+       live: "https://routeyourtravel.com",
+       category: "AI Platform",
+       gradient: "from-indigo-500 to-purple-500",
+       icon: FaRobot,
+       features: ["Production Marketing Site", "Responsive UI", "Blog Generator (WIP)"],
+       isCompanyProject: true
+      }
+      ,
     {
       title: "TeamFlow",
       description: "A Real-Time Collaboration Suite integrating whiteboard, real-time chat, and file sharing. Features live canvas with cursor synchronization, persistent state management using Prisma, and seamless peer-to-peer video/audio communication using WebRTC.",

@@ -57,24 +57,36 @@ export default function Navigation() {
       <motion.nav 
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled 
-            ? 'md:glass-strong md:shadow-2xl bg-transparent md:bg-transparent' 
-            : 'md:glass bg-transparent md:bg-transparent'
-        } md:border md:border-slate-700/30 md:rounded-full md:w-auto md:left-1/2 md:transform md:-translate-x-1/2 md:top-4 md:right-auto right-0`}
+            ? 'glass-strong shadow-2xl border-slate-700/30 md:bg-transparent' 
+            : 'glass border-slate-700/30 md:bg-transparent'
+        } border md:border-slate-700/30 md:rounded-full md:w-auto md:left-1/2 md:transform md:-translate-x-1/2 md:top-4 md:right-auto right-0`}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         style={getTransformStyle()}
       >
-        <div className="px-2 py-2 md:px-1 md:py-1">
-          <div className="flex items-center md:justify-center justify-end relative">
+        <div className="px-4 py-3 md:px-1 md:py-1">
+          <div className="flex items-center justify-between md:justify-center relative">
+            {/* Portfolio text - only visible on mobile */}
+            <motion.div 
+              className="md:hidden"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <span className="font-elegant text-lg font-semibold text-white tracking-wide bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text">
+                Portfolio
+              </span>
+            </motion.div>
+
             {/* Mobile Menu Button - right on mobile, hidden on desktop */}
             <motion.button
-              className="md:hidden text-white p-2 rounded-none hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 overflow-hidden"
+              className="md:hidden text-white p-2 rounded-lg hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 overflow-hidden backdrop-blur-sm"
               onClick={() => setIsOpen(!isOpen)}
               whileTap={{ scale: 0.9 }}
             >
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-none"
+                className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg"
                 initial={{ scale: 0 }}
                 whileHover={{ scale: 1 }}
                 transition={{ duration: 0.3 }}
@@ -145,7 +157,7 @@ export default function Navigation() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed inset-0 z-40 bg-slate-900/95 backdrop-blur-sm"
+            className="md:hidden fixed inset-0 z-40 glass-strong backdrop-blur-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -159,10 +171,10 @@ export default function Navigation() {
                     <motion.a
                       key={item.name}
                       href={item.href}
-                      className={`block font-elegant text-xl font-medium tracking-wide py-4 px-6 rounded-lg transition-all duration-300 text-center relative overflow-hidden group w-full ${
+                      className={`block font-elegant text-xl font-medium tracking-wide py-4 px-6 rounded-lg transition-all duration-300 text-center relative overflow-hidden group w-full backdrop-blur-sm ${
                         isActive 
-                          ? 'text-blue-400 bg-blue-500/20' 
-                          : 'text-slate-200 hover:text-blue-400 hover:bg-blue-500/20'
+                          ? 'text-blue-400 bg-blue-500/20 shadow-lg shadow-blue-500/25' 
+                          : 'text-slate-200 hover:text-blue-400 hover:bg-blue-500/20 hover:shadow-lg hover:shadow-blue-500/25'
                       }`}
                       onClick={() => setIsOpen(false)}
                       initial={{ opacity: 0, y: 30 }}

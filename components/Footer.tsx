@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaCalendarAlt, FaMapMarkerAlt, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa'
 
 export default function Footer() {
   const [formData, setFormData] = useState({
@@ -51,11 +51,12 @@ export default function Footer() {
     }
   }
 
-  const handleContactClick = (type: 'email' | 'phone') => {
+  const handleContactClick = (type: 'email' | 'calendar') => {
     if (type === 'email') {
       window.location.href = 'mailto:senthanbalu@gmail.com'
-    } else if (type === 'phone') {
-      window.location.href = 'tel:+919600506430'
+    } else if (type === 'calendar') {
+      // Replace with your actual calendar booking link (Calendly, Cal.com, etc.)
+      window.open('https://calendly.com/senthan486', '_blank')
     }
   }
 
@@ -129,18 +130,18 @@ export default function Footer() {
                   </div>
                 </motion.div>
                 
-                {/* Clickable Phone */}
+                {/* Calendar/Schedule Meeting */}
                 <motion.div 
                   className="flex items-center gap-4 p-4 glass rounded-2xl hover:bg-slate-700/70 hover:border-slate-500/50 transition-all duration-300 group cursor-pointer"
                   whileHover={{ x: 5, scale: 1.02 }}
-                  onClick={() => handleContactClick('phone')}
+                  onClick={() => handleContactClick('calendar')}
                 >
                   <div className="p-3 bg-green-500/20 rounded-xl group-hover:bg-green-500/30 transition-colors">
-                    <FaPhone className="text-green-400" size={20} />
+                    <FaCalendarAlt className="text-green-400" size={20} />
                   </div>
                   <div>
-                    <p className="font-elegant text-slate-400 text-sm">Phone</p>
-                    <p className="font-elegant text-slate-200 font-medium group-hover:text-green-300 transition-colors">+91 9600506430</p>
+                    <p className="font-elegant text-slate-400 text-sm">Schedule</p>
+                    <p className="font-elegant text-slate-200 font-medium group-hover:text-green-300 transition-colors">Book a Meeting</p>
                   </div>
                 </motion.div>
                 
