@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  --color-ink: #080808;
+  --color-ink-2: #0e0e0e;
+  --color-bone: #f4f3ef;
+  --color-signal: #ff3b00;
+
+  --font-display: "Instrument Serif", "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Hairline colour and strength; dark mode tints them cerulean. */
+:root {
+  --line: var(--color-bone);
+  --line-mix: 11%;
+}
+
+/* Light theme: the two tokens swap, so every bg-ink / text-bone / bone/xx
+   utility inverts with no per-component work. Signal stays the same. */
+:root[data-theme='light'] {
+  --color-ink: #f4f3ef;
+  --color-ink-2: #eae8e2;
+  --color-bone: #0b0b0b;
+  color-scheme: light;
+}
+/* Dark theme: jet black, cerulean structure, neon-rose accent.
+   To revert, delete the custom-property lines below (and set THEME_DARK
+   to 'darkClassic' in src/world/palette.ts). */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-ink: #0a0a0a;
+  --color-ink-2: #0f1720;
+  --color-signal: #ff2950;
+  --line: #2a9df4;
+  --line-mix: 26%;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --color-ink: #f4f3ef;
+    --color-ink-2: #eae8e2;
+    --color-bone: #0b0b0b;
+  }
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    color: var(--color-bone);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-ink);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--color-signal);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 1px solid var(--color-signal);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Role 1 — display */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.75rem, 6.5vw, 7.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+  }
+  .display-sm {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 3.4vw, 3.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+  }
+  /* Role 3 — monospace metadata */
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  /* Masked line wrapper */
+  .mask {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+  }
+  .mask > span {
+    display: block;
+    transform-origin: 0% 100%;
+    will-change: transform;
+  }
+}
+
+@utility hairline {
+  border-color: color-mix(in oklab, var(--line) var(--line-mix), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Readability: text never sits directly on the 3D. A scrim fades the stage
+   behind the text column (left on desktop, full-bleed on phones). */
+@utility scrim-l {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--color-ink) 94%, transparent) 0%,
+    color-mix(in oklab, var(--color-ink) 82%, transparent) 55%,
+    transparent 100%
+  );
+  @media (max-width: 767px) {
+    background: color-mix(in oklab, var(--color-ink) 84%, transparent);
+  }
+}
+@utility scrim-r {
+  background: linear-gradient(
+    270deg,
+    color-mix(in oklab, var(--color-ink) 96%, transparent) 0%,
+    color-mix(in oklab, var(--color-ink) 90%, transparent) 70%,
+    transparent 100%
+  );
+  @media (max-width: 767px) {
+    background: color-mix(in oklab, var(--color-ink) 90%, transparent);
+  }
+}
+@utility scrim-b {
+  background: linear-gradient(
+    0deg,
+    color-mix(in oklab, var(--color-ink) 92%, transparent) 0%,
+    color-mix(in oklab, var(--color-ink) 60%, transparent) 60%,
+    transparent 100%
+  );
+}

@@ -1,0 +1,177 @@
+%-------------------------------------------------------------------------------
+% B T Senthan Amuthan — Resume
+% Build:  cd resume && pdflatex resume.tex
+% Output is copied to public/B_T_Senthan_Amuthan_Resume.pdf for the website.
+%
+% Compliance: employer-internal names (projects, teams, platforms) and
+% employer architecture/stack details are intentionally omitted. Phone number
+% intentionally omitted.
+%-------------------------------------------------------------------------------
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{tikz}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+\hypersetup{pdftitle={B T Senthan Amuthan - Resume}, pdfauthor={B T Senthan Amuthan}}
+
+% Small "external link" mark (drawn, so no icon font is needed)
+\newcommand{\extlink}{\,\tikz[baseline=-0.1ex,line width=0.45pt,line cap=round,line join=round,scale=0.21]{
+  \draw (0.55,1) -- (0,1) -- (0,0) -- (1,0) -- (1,0.45);
+  \draw (0.45,0.55) -- (1.15,1.15); \draw (0.7,1.15) -- (1.15,1.15) -- (1.15,0.7);}}
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+  \textbf{\Huge B T Senthan Amuthan} \\ \vspace{1pt}
+  \small
+  \href{mailto:senthanbalu@gmail.com}{senthanbalu@gmail.com} ---
+  \href{https://www.linkedin.com/in/b-t-senthan-amuthan-17006827b/}{LinkedIn} ---
+  \href{https://github.com/senthan-07}{GitHub} ---
+  \href{https://leetcode.com/u/Senthan_official/}{LeetCode}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Professional Summary}
+\small{Computer Science undergraduate with experience building production backend systems and scalable full-stack applications. Skilled in large codebases, distributed backend development, code reviews, testing, and cross-functional collaboration.}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Shiv Nadar University Chennai}{Aug 2023 -- Aug 2027}
+      {B.Tech in Computer Science (Cyber Security) \textbf{CGPA: 9.26} \href{https://drive.google.com/file/d/1Q2F8jncKe10YrhAze-eUn5lR_XA8GLfl/view?usp=sharing}{\extlink}}{Kalavakkam, India}
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Summer Analyst Intern -- Citi}{June 2026 -- July 2026}
+      {Software Engineering}{India}
+      \resumeItemListStart
+        \resumeItem{Built the backend foundation of an internal enterprise platform, \textbf{designing REST APIs}, database schemas, and migration workflows for production use.}
+        \resumeItem{Designed and implemented \textbf{authentication middleware} with structured logging, request tracing, and authorization, securing \textbf{100\%} of protected APIs while improving debugging across backend services.}
+        \resumeItem{Resolved recurring \textbf{CI/CD} failures through log and monitoring analysis, restoring \textbf{100\% pipeline reliability}, achieving a \textbf{99\%} code-quality gate pass rate, and reducing test execution time by \textbf{10$\times$} using isolated test databases with \textbf{250+ automated tests} and \textbf{100\% coverage}.}
+        \resumeItem{Quickly ramped up on a \textbf{large enterprise codebase} by collaborating with senior engineers, participating in design discussions, and incorporating review feedback to deliver production-ready backend features.}
+        \resumeItem{Delivered \textbf{4 production stories} through cross-functional collaboration, contributing \textbf{6+ pull requests} with \textbf{zero production defects} while participating in design discussions and code reviews.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Development Engineer Intern}{June 2025 -- August 2025}
+      {Dexio Designs (stipend internship) \href{https://www.dexiodesigns.com/}{\extlink}}{India}
+      \resumeItemListStart
+        \resumeItem{Designed \textbf{HLD and LLD} for production-ready full-stack features before implementing them, collaborating with Product Owners from design through deployment.}
+        \resumeItem{Developed \textbf{reusable UI components} and REST API integrations, reducing QA revisions by \textbf{50\%} while improving maintainability and delivery speed.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{AstraStore -- Distributed Storage Engine} \href{https://github.com/Gokul-Nishandh/AstraStore}{\extlink}}{\textit{\small Java, Linux, Streaming I/O, REST/gRPC, Docker}}
+      \resumeItemListStart
+        \resumeItem{Engineered a low-level storage node agent with a \textbf{zero-memory streaming chunker} (dual SHA-256 digests) and atomic \textbf{fsync-validated writes}, guaranteeing \textbf{100\% data integrity} with near-zero memory overhead during node failures.}
+        \resumeItem{Built an automated background self-healing scanner (\textbf{UnderReplicationScanner}) and peer-to-peer replication service with exponential backoff, reducing degraded chunk recovery time by \textbf{65\%}.}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{QEMU Lab Orchestrator} \href{https://github.com/senthan-07/Minimal-Network-Lab}{\extlink}}{\textit{\small QEMU, Express.js, Docker, Guacamole, Next.js}}
+      \resumeItemListStart
+        \resumeItem{Designed a \textbf{virtualization platform} orchestrating isolated QEMU VMs via REST APIs, integrating Dockerized \textbf{Apache Guacamole} for low-latency browser access under \textbf{50ms latency}.}
+        \resumeItem{Automated end-to-end VM lifecycle management and persistent state tracking, cutting VM provisioning time by \textbf{80\%} across multi-tenant lab topologies.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------OPEN SOURCE-----------
+\section{Open Source Contributions}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Bento Slides -- Ghost Cut Support} \href{https://github.com/nyblnet/bento/pull/679}{\extlink}}{\textit{\small Merged PR \#679}}
+      \resumeItemListStart
+        \resumeItem{Delivered \textbf{Ghost Cut support} for slide elements, enabling users to move selections across slides through keyboard and clipboard interactions, with cancellation, restoration, and single-step undo.}
+        \resumeItem{Integrated ghost rendering with model-derived opacity and browser-local preferences; validated the feature through successful builds, translation checks, and manual interaction testing before upstream merge.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Skills}
+  \begin{itemize}[leftmargin=0.15in, label={$\bullet$}, itemsep=0pt]
+    \small{
+      \item \textbf{Languages:} C++, Java, Python, JavaScript, TypeScript, Rust, C
+      \item \textbf{Backend:} FastAPI, Node.js, Express.js, REST APIs, Microservices, WebSockets, Async Programming
+      \item \textbf{Databases:} PostgreSQL, MongoDB, SQLite, SQL, Prisma, Liquibase
+      \item \textbf{DevOps:} Git, Docker, Kubernetes, OpenShift, CI/CD, IBM S3, Linux, SonarQube, Grafana
+      \item \textbf{Software Engineering:} DSA, OOP, SDLC, System Design, Unit Testing, Code Reviews
+    }
+  \end{itemize}
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
+  \begin{itemize}[leftmargin=0.15in, label={$\bullet$}]
+    \small{
+      \item Solved \textbf{400+} DSA problems on LeetCode; active participant in competitive programming and technical hackathons including \textbf{SIH 2023 \& 2024} and \textbf{SNUHacks}.
+      \item Named \textbf{Finalist} at Envithon hackathon; completed technical workshops on \textbf{DevSecOps} and secure CI/CD pipeline automation.
+    }
+  \end{itemize}
+
+\end{document}
