@@ -18,7 +18,8 @@ const listeners = new Set<() => void>()
 
 function apply(t: Theme) {
   document.documentElement.dataset.theme = t
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', t === 'dark' ? '#080808' : '#f4f3ef')
+  // An explicit choice overrides the per-scheme theme-color tags in index.html.
+  document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute('content', t === 'dark' ? '#0a0a0a' : '#f4f3ef'))
 }
 if (typeof document !== 'undefined') apply(current)
 

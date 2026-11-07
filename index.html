@@ -3,24 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>B T Senthan Amuthan — Backend Engineer</title>
-    <meta name="description" content="B T Senthan Amuthan — Computer Science (Cyber Security) undergraduate at Shiv Nadar University Chennai. Backend systems, APIs, CI/CD. Summer Analyst Intern at Citi." />
-    <meta name="theme-color" content="#080808" />
+    <!--seo:head-->
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4f3ef" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <script>
-      // Set the theme before first paint to avoid a flash.
+      // Before first paint: mark JS as available (hides the crawler/no-JS copy)
+      // and apply the saved or system theme to avoid a flash.
+      document.documentElement.classList.add('js')
       try {
         var t = localStorage.getItem('theme')
         if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
         document.documentElement.dataset.theme = t
       } catch (e) {}
     </script>
+    <style>
+      /* Pre-rendered copy: read by crawlers and no-JS visitors, replaced by the app. */
+      .js #prerender { display: none; }
+      #prerender { max-width: 72ch; margin: 0 auto; padding: 48px 20px; font: 16px/1.6 system-ui, sans-serif; color: #f4f3ef; background: #0a0a0a; }
+      #prerender a { color: inherit; }
+      #prerender h1 { font-size: 2.5rem; line-height: 1.1; margin: 0.2em 0; }
+      #prerender h2 { margin-top: 2em; border-top: 1px solid #333; padding-top: 1em; font-size: 1.4rem; font-weight: 600; }
+      #prerender h3 { margin-top: 1.2em; font-weight: 600; }
+      #prerender ul { list-style: disc; padding-left: 1.2em; }
+      #prerender p, #prerender li { margin: 0.3em 0; }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--seo:body--></div>
+    <noscript><p style="text-align:center;font-family:system-ui;color:#999">The interactive 3D story needs JavaScript — the full profile is above.</p></noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

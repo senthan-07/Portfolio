@@ -14,6 +14,17 @@ export const profile = {
     'Computer Science undergraduate who builds production backend systems and full-stack applications. Comfortable inside large codebases. Writes the tests, joins the code reviews, ships with the team.',
 }
 
+/** Search and social metadata. Change `url` here if the site moves to a custom domain. */
+export const site = {
+  url: 'https://senthan.vercel.app',
+  title: 'B T Senthan Amuthan — Backend Engineer',
+  description:
+    'Backend engineer and Computer Science (Cyber Security) student at Shiv Nadar University Chennai. Production APIs, authentication, data and CI/CD; distributed storage and virtualization projects.',
+  ogImage: '/og.png',
+  ogImageAlt: 'Senthan Amuthan — Backend Engineer. Every system starts with one request.',
+  locale: 'en_IN',
+}
+
 export const links = [
   { label: 'GitHub', href: 'https://github.com/senthan-07' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/b-t-senthan-amuthan-17006827b/' },

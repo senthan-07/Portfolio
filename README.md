@@ -30,6 +30,16 @@ npm run build    # typecheck + production build → dist/
 | `public/B_T_Senthan_Amuthan_Resume.pdf` | The resume linked from the site — built from `resume/resume.tex` (`cd resume && pdflatex resume.tex`, then copy the PDF here). |
 | `resume/resume.tex` | Resume source. Employer-internal names, employer architecture and the phone number are deliberately left out. |
 
+## SEO
+
+Generated at build time from `src/lib/data.ts` by `src/lib/seo.ts` (wired in `vite.config.ts`), so search metadata never drifts from what the page shows:
+
+- `<head>`: canonical URL, description, Open Graph + Twitter cards, JSON-LD (`ProfilePage` → `Person`, `WebSite`).
+- A pre-rendered, semantic copy of the profile inside `#root` for crawlers and no-JS visitors; the app replaces it on load.
+- `robots.txt`, `sitemap.xml`, `site.webmanifest` emitted into `dist/`.
+- `public/og.png` is the 1200×630 social preview card; app icons are `public/apple-touch-icon.png`, `icon-192.png`, `icon-512.png`.
+- Moving to a custom domain: change `site.url` in `src/lib/data.ts`.
+
 ## Deploying (Vercel)
 
 - Framework preset **Vite** · build `npm run build` · output `dist` · Node ≥ 22.12 (pinned in `package.json`).

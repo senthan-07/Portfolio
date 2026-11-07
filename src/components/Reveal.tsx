@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode, RefObject } from 'react'
+import { Fragment, type ElementType, type ReactNode, type RefObject } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
@@ -15,9 +15,13 @@ export function MaskLines({
   return (
     <Tag className={className} data-mask-group>
       {lines.map((line, i) => (
-        <span className="mask" key={i}>
-          <span>{line}</span>
-        </span>
+        <Fragment key={i}>
+          {/* A real space between lines, so the heading reads "Senthan Amuthan." to crawlers and screen readers. */}
+          {i > 0 && ' '}
+          <span className="mask">
+            <span>{line}</span>
+          </span>
+        </Fragment>
       ))}
     </Tag>
   )
